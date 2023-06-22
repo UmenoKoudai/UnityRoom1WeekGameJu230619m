@@ -29,6 +29,15 @@ public class KanjiData : MonoBehaviour
         KanjiYomiganaOnLoad();
     }
 
+    private void Update()
+    {
+        //確認用
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    KanjiYomiganaOnLoad();
+        //}
+    }
+
     /// <summary>現在の問題となる漢字と正解の読み仮名の変数の値を更新するメソッド</summary>
     public void KanjiYomiganaOnLoad()
     {
@@ -61,7 +70,12 @@ public class KanjiData : MonoBehaviour
                 }
 
                 string[] data = line.Split(',');
-                _kanjiYomiganaData.Add(new KanjiYomiganaData(data[0], data[1]));
+                KanjiYomiganaData _kanjiyomigana = new KanjiYomiganaData(data[0], data[1]);
+                //重複しないようにした
+                if (!_kanjiYomiganaData.Contains(_kanjiyomigana))
+                {
+                    _kanjiYomiganaData.Add(new KanjiYomiganaData(data[0], data[1]));
+                }
             }
         }
     }
