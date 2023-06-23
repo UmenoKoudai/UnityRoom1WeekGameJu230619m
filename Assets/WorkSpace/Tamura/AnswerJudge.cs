@@ -5,21 +5,12 @@ using UnityEngine;
 /// <summary>正解の文字と入力した文字が同じか判定するスクリプト</summary>
 public class AnswerJudge : MonoBehaviour
 {
-    //[SerializeField] private string _kanjiData = "マージしたら変えてね";
-
-    [Tooltip("今の問題の答え")] private string _answer = default;
-
-    private void Start()
-    {
-        //最初の問題の答え持ってくる
-        _answer = "";
-    }
-
     /// <summary>正解かどうか判定する。入力が確定したときに呼ばれる</summary>
     public void Judgement(string input)
     {
+        string answer = "今の問題の答えを持ってくる";
 
-        if(input == _answer)
+        if(input == answer)
         {
             Debug.Log("あってるよ");
         }
