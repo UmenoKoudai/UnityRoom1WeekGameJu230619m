@@ -128,7 +128,9 @@ public class AudioManager : MonoBehaviour
     {
         public enum BGM
         {
-            Normal,
+            Title,
+            Slime,
+            Golem,
             Boss,
         }
 

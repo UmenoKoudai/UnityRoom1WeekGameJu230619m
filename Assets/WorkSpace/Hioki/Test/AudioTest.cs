@@ -7,7 +7,7 @@ public class AudioTest : MonoBehaviour
     [SerializeField] AudioManager _audio;
     void Start()
     {
-        _audio.PlayBGM(AudioManager.BgmSoundData.BGM.Normal);
+        //_audio.PlayBGM(AudioManager.BgmSoundData.BGM.Enemy);
     }
 
     void Update()
@@ -20,7 +20,7 @@ public class AudioTest : MonoBehaviour
         {
             _audio.PlayBGM(AudioManager.BgmSoundData.BGM.Boss);
         }
-        if (Input.GetKeyDown(KeyCode.A)) { _audio.PlayBGM(AudioManager.BgmSoundData.BGM.Normal); }
+        //if (Input.GetKeyDown(KeyCode.A)) { _audio.PlayBGM(AudioManager.BgmSoundData.BGM.Enemy2); }
         if (Input.GetKeyDown(KeyCode.L)) { _audio.PlaySE(AudioManager.SeSoundData.SE.Move); }
         if (Input.GetKeyDown(KeyCode.J)) { _audio.PlaySE(AudioManager.SeSoundData.SE.Hit); }
     }
