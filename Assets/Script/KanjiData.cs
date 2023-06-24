@@ -32,25 +32,28 @@ public class KanjiData : MonoBehaviour
     private void Update()
     {
         //確認用
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    KanjiYomiganaOnLoad();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            KanjiYomiganaOnLoad();
+        }
     }
 
     /// <summary>現在の問題となる漢字と正解の読み仮名の変数の値を更新するメソッド</summary>
     public void KanjiYomiganaOnLoad()
     {
-        if(_index == _kanjiYomiganaData.Count)
-        {
-            Debug.Log("問題となる漢字がないです");
-        }
-        else
-        {
-            _kanji = _kanjiYomiganaData[_index].Kanji;
-            _yomigana = _kanjiYomiganaData[_index].Yomigana;
-            _index++;
-        }
+        _index = Random.Range(0, _kanjiYomiganaData.Count);
+        _kanji = _kanjiYomiganaData[_index].Kanji;
+        _yomigana = _kanjiYomiganaData[_index].Yomigana;
+        //if (_index == _kanjiYomiganaData.Count)
+        //{
+        //    Debug.Log("問題となる漢字がないです");
+        //}
+        //else
+        //{
+        //    _kanji = _kanjiYomiganaData[_index].Kanji;
+        //    _yomigana = _kanjiYomiganaData[_index].Yomigana;
+        //    _index++;
+        //}
     }
 
     /// <summary>CSVテーブルの中のデータをすべてListに入れる</summary>
