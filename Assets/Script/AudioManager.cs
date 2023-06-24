@@ -78,7 +78,6 @@ public class AudioManager : MonoBehaviour
     public void PlayBGM(BgmSoundData.BGM bgm)
     {
         BgmSoundData data = new BgmSoundData();
-
         for (int i = 0; i < _bgmSoundDatas.Length; i++)
         {
             if (bgm == _bgmSoundDatas[i].Bgm)
@@ -86,7 +85,7 @@ public class AudioManager : MonoBehaviour
                 data = _bgmSoundDatas[i];
             }
         }
-
+        Debug.Log(data.AudioClip);
         _audioBgm.clip = data.AudioClip;
 
         //‰¹—Ê‚Ì’²ß
@@ -155,6 +154,7 @@ public class AudioManager : MonoBehaviour
             Click,
             Move,
             Hit,
+            Failed,
         }
 
         public SE Se;

@@ -26,32 +26,28 @@ public class GameManager : MonoBehaviour
 
     public Action Next { get => _nextStage; set => _nextStage = value; }
     public GameState State { get => _state; set => _state = value; }
-
     void Start()
     {
+        _nowStage = Result.Instance.CurrentScore;
         _fade.DOFade(0, 0.5f).OnComplete(() => { _state = GameState.Game;_fade.gameObject.SetActive(false); });
+        _sceneChanger = FindObjectOfType<SceneChanger>();
         _nowTime = _timeLimit;
         _questionData = FindObjectOfType<KanjiData>();
-        _sceneChanger = FindObjectOfType<SceneChanger>();
     }
-
     void Update()
     {
-        if (_state != GameState.Result)
+        _nowStageText.text = $"{_nowStage}/{_maxStage}";
+        _countDownText.text = $"{_nowTime.ToString("F0")}";
+        Result.Instance.CurrentScore = _nowStage;
+        if (_state == GameState.Game)
         {
+            _questionText.text = _questionData.NowKanji;
             _nowStageText.text = $"{_nowStage}/{_maxStage}";
-            _countDownText.text = $"{_nowTime.ToString("F0")}";
-            if (_state == GameState.Game)
+            _countDownImage.fillAmount -= Time.deltaTime / _timeLimit;
+            _nowTime -= Time.deltaTime;
+            if (_nowTime < 0)
             {
-                _questionText.text = _questionData.NowKanji;
-                _nowStageText.text = $"{_nowStage + 1}/{_maxStage}";
-                _countDownImage.fillAmount -= Time.deltaTime / _timeLimit;
-                _nowTime -= Time.deltaTime;
-                if (_nowTime < 0)
-                {
-                    _state = GameState.Result;
-                    _sceneChanger.ScneChange("Result");
-                }
+                _sceneChanger.ScneChange("Result");
             }
         }
     }
@@ -60,10 +56,10 @@ public class GameManager : MonoBehaviour
     {
         _nowTime = _timeLimit;
         _countDownImage.fillAmount = 1;
-        _nowStage++;
         _questionData.KanjiYomiganaOnLoad();
         if (state == GameState.Damage)
         {
+            _nowStage++;
             _enemy.Damage(_player.Attack);
         }
         if (state == GameState.Next)
@@ -74,11 +70,12 @@ public class GameManager : MonoBehaviour
         }
         if (state == GameState.BossStage)
         {
+            Result.Instance.CurrentScore = _nowStage;
             _sceneChanger.ScneChange("Boss");
         }
         if(state == GameState.Result)
         {
-            _state = GameState.Result;
+            Result.Instance.CurrentScore = _nowStage;
             _sceneChanger.ScneChange("Result");
         }
     }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using static AudioManager.BgmSoundData;
+using static AudioManager;
 
 public class Enemy : MonoBehaviour
 {
@@ -23,6 +25,14 @@ public class Enemy : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = _enemyImages[_nowEnemy];
         _nowHp = _enemyHp[_nowEnemy];
         _enemyHpBar.maxValue = _nowHp;
+        if (_type == EnemyType.Normal)
+        {
+            AudioManager.Instance.PlayBGM(BGM.Slime);
+        }
+        if (_type == EnemyType.Boss)
+        {
+            AudioManager.Instance.PlayBGM(BGM.Boss);
+        }
     }
 
     void Update()
@@ -40,7 +50,8 @@ public class Enemy : MonoBehaviour
     {
         _nowHp -= damage;
         Instantiate(_effect, transform.position, transform.rotation);
-        if(_nowHp < 0)
+        AudioManager.Instance.PlaySE(SeSoundData.SE.Hit);
+        if (_nowHp <= 0)
         {
             if (_type == EnemyType.Normal)
             {
@@ -67,6 +78,7 @@ public class Enemy : MonoBehaviour
         _enemyHpBar.maxValue = _nowHp;
         GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<SpriteRenderer>().sprite = _enemyImages[_nowEnemy];
+        AudioManager.Instance.PlayBGM(BGM.Golem);
     }
     enum EnemyType
     {

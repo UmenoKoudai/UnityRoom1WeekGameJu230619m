@@ -16,6 +16,7 @@ public class KanjiData : MonoBehaviour
     List<KanjiYomiganaData> _kanjiYomiganaData = new List<KanjiYomiganaData>();
     /// <summary>今問題対象になっているListのIndex</summary>
     int _index = 0;
+    int _previousIndex = -1;
 
     /// <summary>今問題に出されている漢字</summary>
     public string NowKanji => _kanji;
@@ -42,6 +43,11 @@ public class KanjiData : MonoBehaviour
     public void KanjiYomiganaOnLoad()
     {
         _index = Random.Range(0, _kanjiYomiganaData.Count);
+        while(_index == _previousIndex)
+        {
+            _index = Random.Range(0, _kanjiYomiganaData.Count);
+        }
+        _previousIndex = _index;
         _kanji = _kanjiYomiganaData[_index].Kanji;
         _yomigana = _kanjiYomiganaData[_index].Yomigana;
         //if (_index == _kanjiYomiganaData.Count)
