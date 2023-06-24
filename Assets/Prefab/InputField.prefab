@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
+  m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0.5}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -67,17 +67,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: a78148293945cbc4c933df81eb4714dc, type: 3}
+    m_FontSize: 300
     m_FontStyle: 2
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u8AAD\u307F\u304C\u306A\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
 --- !u!1 &1529176158040727072
@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 1529176158118939451}
   - component: {fileID: 1529176158118939448}
   - component: {fileID: 1529176158118939445}
+  - component: {fileID: 4140902261332216697}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -333,3 +334,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputText: {fileID: 1529176158040727074}
+--- !u!114 &4140902261332216697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529176158118939454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHtmlElement: 0

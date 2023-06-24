@@ -19,6 +19,7 @@ public class AnswerJudge : MonoBehaviour
         else
         {
             Debug.Log("‚¿‚ª‚¤‚æ");
+            AudioManager.Instance.PlaySE(AudioManager.SeSoundData.SE.Failed);
         }
 
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using static GameManager;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -31,6 +30,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         transform.DOMoveX(_endPosition.position.x, 1f);
+        AudioManager.Instance.PlaySE(AudioManager.SeSoundData.SE.Move);
         yield return new WaitForSeconds(1f);
         transform.position = _startPosition.position;
         yield return new WaitForSeconds(0.4f);
