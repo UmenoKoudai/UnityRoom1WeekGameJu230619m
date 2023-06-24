@@ -8,11 +8,13 @@ public class AnswerJudge : MonoBehaviour
     /// <summary>³‰ğ‚©‚Ç‚¤‚©”»’è‚·‚éB“ü—Í‚ªŠm’è‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é</summary>
     public void Judgement(string input)
     {
-        string answer = "¡‚Ì–â‘è‚Ì“š‚¦‚ğ‚Á‚Ä‚­‚é";
+        string answer = FindObjectOfType<KanjiData>().NowAnswer;
+        Debug.Log($"¡‚Ì“š‚¦ = {answer}");
 
         if(input == answer)
         {
             Debug.Log("‚ ‚Á‚Ä‚é‚æ");
+            FindObjectOfType<GameManager>().NextStageCallback(GameManager.GameState.Damage);
         }
         else
         {
