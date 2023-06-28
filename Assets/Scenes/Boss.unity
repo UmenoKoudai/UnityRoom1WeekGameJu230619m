@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _endPosition: {fileID: 258296994}
   _startPosition: {fileID: 1916139080}
-  _playerAttack: 2
+  _playerAttack: 1
 --- !u!212 &45609954
 SpriteRenderer:
   m_ObjectHideFlags: 0

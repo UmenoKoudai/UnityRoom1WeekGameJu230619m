@@ -14,6 +14,8 @@ public class TextSubmit : MonoBehaviour
     {
         _inputField = GetComponent<InputField>();
         _inputField.ActivateInputField();
+        _inputField.contentType = InputField.ContentType.Standard;
+        _inputField.inputType = InputField.InputType.Standard;
     }
     //public void Update()
     //{
